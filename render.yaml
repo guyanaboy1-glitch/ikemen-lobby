@@ -1,0 +1,10 @@
+# One-click deploy of the Ikemen Online Lobby on Render (render.com).
+services:
+  - type: web
+    name: ikemen-lobby
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: TRUST_PROXY
+        value: "1"

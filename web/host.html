@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ikemen Party · Host</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <span class="brand">Ikemen <b>Party</b> · Host</span>
+  <span id="live" class="live off">OFFLINE</span>
+  <div id="counts" class="counts"></div>
+</header>
+
+<main class="layout">
+  <section class="stage">
+    <div class="video-wrap">
+      <video id="preview" autoplay muted playsinline></video>
+      <div id="previewHint" class="video-overlay">
+        Start Ikemen GO, then press <b>&nbsp;Share Ikemen window&nbsp;</b> and pick its window.
+      </div>
+    </div>
+    <div class="toolbar">
+      <button id="shareBtn" class="primary">Share Ikemen window</button>
+      <button id="stopBtn" class="hidden">Stop sharing</button>
+      <button id="lockBtn">Close session to new people</button>
+      <span class="grow"></span>
+      <span id="shareInfo" class="hint"></span>
+    </div>
+    <div class="card">
+      <h2>Session</h2>
+      <div class="row">
+        <div class="field" style="flex:1;min-width:180px">
+          <label for="sessionName">Session name</label>
+          <input id="sessionName" maxlength="48">
+        </div>
+        <div class="field" style="flex:1;min-width:180px">
+          <label for="gameName">Game</label>
+          <input id="gameName" maxlength="48">
+        </div>
+      </div>
+      <div class="row">
+        <button id="publicBtn">List in Online Lobby</button>
+        <span id="lobbyState" class="hint"></span>
+      </div>
+      <div id="lobbyLinkRow" class="hint hidden">Internet link: <b id="lobbyLink"></b></div>
+      <p class="hint" style="margin:0">
+        Friends join at <b id="guestUrl"></b> on your network, or through your tunnel link over the internet.
+        For game sound, share <b>Entire screen</b> and tick <b>Share system audio</b>.
+      </p>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <h2>People</h2>
+      <div id="roster" class="roster"></div>
+      <p class="hint" style="margin:0">
+        Pick a pad to let someone play. Pad 1 is the first virtual controller Windows sees
+        after your own. Set each pad's buttons once in Ikemen's Options → Input.
+      </p>
+    </div>
+    <div class="card chat">
+      <h2>Chat</h2>
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" maxlength="300" placeholder="Message everyone" autocomplete="off">
+        <button>Send</button>
+      </form>
+    </div>
+  </aside>
+</main>
+
+<script src="common.js"></script>
+<script src="host.js"></script>
+</body>
+</html>

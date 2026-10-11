@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ikemen Party</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- Join screen -->
+<section id="joinView" class="join">
+  <div class="card session-card">
+    <div id="thumb" class="thumb">No preview yet</div>
+    <div class="body">
+      <div class="row">
+        <span id="joinLive" class="live off">OFFLINE</span>
+        <span id="joinTitle" class="title">Loading…</span>
+      </div>
+      <div id="joinGame" class="game"></div>
+      <div id="joinCounts" class="counts" style="margin-left:0"></div>
+      <form id="joinForm" class="row">
+        <input id="nameInput" maxlength="24" placeholder="Your name" required style="flex:1" autocomplete="nickname">
+        <button class="primary">Join</button>
+      </form>
+      <div id="joinError" class="banner bad hidden"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Session screen -->
+<div id="sessionView" class="hidden">
+  <header class="top">
+    <span class="brand">Ikemen <b>Party</b></span>
+    <span id="live" class="live off">OFFLINE</span>
+    <span id="title"></span>
+    <div id="counts" class="counts"></div>
+  </header>
+  <main class="layout">
+    <section class="stage">
+      <div class="video-wrap" id="videoWrap">
+        <video id="video" autoplay muted playsinline></video>
+        <div id="videoHint" class="video-overlay">Waiting for the host to share the game…</div>
+      </div>
+      <div class="toolbar">
+        <button id="soundBtn">🔇 Turn sound on</button>
+        <button id="fsBtn">Fullscreen</button>
+        <span class="grow"></span>
+        <span id="ping" class="hint"></span>
+      </div>
+      <div class="card">
+        <h2>Controller</h2>
+        <div id="secureWarn" class="banner hidden">
+          Your browser blocks controllers on this kind of link. Ask the host for their
+          <b>https://</b> tunnel link. The keyboard still works here.
+        </div>
+        <div id="slotStatus" class="banner">You're watching.</div>
+        <div class="row">
+          <button id="wantBtn">🎮 Ask to play</button>
+          <span id="padName" class="hint">Plug in a controller and press any button.</span>
+        </div>
+        <div id="padView" class="pad-view"></div>
+        <p class="hint" style="margin:0">
+          Keyboard: <kbd>W A S D</kbd>/arrows move · <kbd>U</kbd><kbd>I</kbd><kbd>O</kbd> top row ·
+          <kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> bottom row · <kbd>Enter</kbd> start · <kbd>\</kbd> back
+        </p>
+      </div>
+    </section>
+    <aside class="side">
+      <div class="card">
+        <h2>People</h2>
+        <div id="roster" class="roster"></div>
+      </div>
+      <div class="card chat">
+        <h2>Chat</h2>
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" maxlength="300" placeholder="Say something" autocomplete="off">
+          <button>Send</button>
+        </form>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script src="common.js"></script>
+<script src="guest.js"></script>
+</body>
+</html>
